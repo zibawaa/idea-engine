@@ -6,12 +6,21 @@
 - **Backend API** (Node.js) → Render (free)
 - **Desktop** (Tauri) → Can connect to the deployed API via Settings
 
+## Current Deployment
+
+- **Frontend (live):** https://fastidious-biscotti-b09665.netlify.app
+- **API:** Deploy to Render (see below), then add `VITE_API_URL` in Netlify env vars and redeploy.
+
 ## 1. Deploy API to Render
 
-1. Push repo to GitHub
-2. Go to [render.com](https://render.com) → New → Web Service
-3. Connect your GitHub repo
-4. Settings:
+1. Push repo to GitHub:
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/idea-engine.git
+   git push -u origin master
+   ```
+2. Go to [dashboard.render.com](https://dashboard.render.com) → New → Web Service
+3. Connect GitHub and select your repo, or paste the public repo URL
+4. Settings (or use `render.yaml` blueprint):
    - **Build Command:** `pnpm install`
    - **Start Command:** `node apps/api/server.js`
    - **Root Directory:** (leave default)
@@ -19,17 +28,29 @@
 
 **Note:** Render free tier spins down after 15 min idle. First request may take ~30s.
 
-## 2. Deploy Frontend to Netlify
+### Deploy Frontend (Static Site) to Render
 
-1. Go to [netlify.com](https://netlify.com) → Add new site → Import from Git
-2. Connect your GitHub repo
-3. Build settings:
-   - **Build command:** `pnpm install && pnpm --filter @idea-engine/shared build && pnpm --filter desktop build`
-   - **Publish directory:** `apps/desktop/dist`
-4. **Environment variables:** Add `VITE_API_URL` = your Render API URL (e.g. `https://idea-engine-api.onrender.com`)
-5. Deploy
+If deploying the web frontend to Render instead of Netlify:
+- **Build Command:** `pnpm install && pnpm --filter @idea-engine/shared build && pnpm --filter desktop build`
+- **Publish Directory:** `apps/desktop/dist`
+- **Root Directory:** (leave default) — must build from repo root so shared package is available
 
-## 3. Connect Desktop to Cloud
+## 2. Connect Frontend to API
+
+1. Go to [Netlify → Site settings → Environment variables](https://app.netlify.com/sites/fastidious-biscotti-b09665/configuration/env)
+2. Add `VITE_API_URL` = your Render API URL (e.g. `https://idea-engine-api.onrender.com`)
+3. Trigger a redeploy (Deploys → Trigger deploy)
+
+## 3. Deploy Frontend (or redeploy)
+
+```bash
+cd apps/desktop
+npx netlify-cli deploy --prod --dir=dist --create-site
+```
+
+Or: Netlify → Deploys → Trigger deploy (if already linked).
+
+## 4. Connect Desktop to Cloud
 
 1. Open Idea Engine desktop app
 2. Click **Settings**

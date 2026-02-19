@@ -1,4 +1,4 @@
-import type { IdeaBundle } from '@idea-engine/shared';
+import type { IdeaBundle, Idea, Step, Risk, NextAction } from '@idea-engine/shared';
 import './IdeaCard.css';
 
 interface IdeaCardProps {
@@ -16,7 +16,7 @@ export function IdeaCard({ bundle }: IdeaCardProps) {
         <section className="idea-section">
           <h4>Ideas</h4>
           <ul>
-            {bundle.ideas.map((i, idx) => (
+            {bundle.ideas.map((i: Idea, idx: number) => (
               <li key={idx}>
                 <strong>{i.title}</strong>
                 <p>{i.description}</p>
@@ -31,8 +31,8 @@ export function IdeaCard({ bundle }: IdeaCardProps) {
           <h4>Step Plan</h4>
           <ol>
             {bundle.stepPlan
-              .sort((a, b) => a.order - b.order)
-              .map((s, idx) => (
+              .sort((a: Step, b: Step) => a.order - b.order)
+              .map((s: Step, idx: number) => (
                 <li key={idx}>
                   {s.action}
                   {s.details && <span className="step-details"> — {s.details}</span>}
@@ -45,7 +45,7 @@ export function IdeaCard({ bundle }: IdeaCardProps) {
         <section className="idea-section">
           <h4>Risks</h4>
           <ul>
-            {bundle.risks.map((r, idx) => (
+            {bundle.risks.map((r: Risk, idx: number) => (
               <li key={idx} className={`risk-${r.severity}`}>
                 {r.description}
                 {r.mitigation && <span> — Mitigation: {r.mitigation}</span>}
@@ -58,7 +58,7 @@ export function IdeaCard({ bundle }: IdeaCardProps) {
         <section className="idea-section">
           <h4>Dependencies</h4>
           <ul>
-            {bundle.dependencies.map((d, idx) => (
+            {bundle.dependencies.map((d: string, idx: number) => (
               <li key={idx}>{d}</li>
             ))}
           </ul>
@@ -73,7 +73,7 @@ export function IdeaCard({ bundle }: IdeaCardProps) {
         <section className="idea-section">
           <h4>Next Actions</h4>
           <ul>
-            {bundle.nextActions.map((a, idx) => (
+            {bundle.nextActions.map((a: NextAction, idx: number) => (
               <li key={idx}>
                 <span className={`priority-${a.priority}`}>{a.priority}</span>: {a.action}
               </li>

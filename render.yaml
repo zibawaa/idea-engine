@@ -1,4 +1,4 @@
-# Render Blueprint - Deploy API as Web Service
+# Render Blueprint - Deploy API + Static Site
 # Connect repo at render.com → New → Blueprint
 services:
   - type: web
@@ -7,3 +7,8 @@ services:
     buildCommand: pnpm install
     startCommand: node apps/api/server.js
     envVars: []
+  - type: web
+    name: idea-engine-web
+    runtime: static
+    buildCommand: pnpm install && pnpm --filter @idea-engine/shared build && pnpm --filter desktop build
+    staticPublishPath: ./apps/desktop/dist
