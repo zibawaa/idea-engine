@@ -1,0 +1,18 @@
+# Netlify - deploy the React frontend
+# Build: pnpm build (from apps/desktop)
+# Publish: apps/desktop/dist
+# Set VITE_API_URL in Netlify env to your Render API URL
+
+[build]
+  command = "pnpm install && pnpm --filter @idea-engine/shared build && pnpm --filter desktop build"
+  publish = "apps/desktop/dist"
+  base = "."
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA routing - all routes to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

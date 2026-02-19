@@ -1,0 +1,5 @@
+# Render Blueprint - Free tier
+# Deploy: Connect repo, add as Web Service, set:
+#   Build Command: pnpm install
+#   Start Command: node apps/api/server.js
+#   Root Directory: (leave default)

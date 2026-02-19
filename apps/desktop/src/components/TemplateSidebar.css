@@ -1,0 +1,74 @@
+.template-sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: #1e293b;
+  border-right: 1px solid #334155;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.sidebar-section {
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-section h3 {
+  margin: 0 0 0.75rem;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.new-chat-sidebar {
+  width: 100%;
+  padding: 0.5rem;
+  background: #334155;
+  border: 1px solid #475569;
+  color: #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+}
+
+.new-chat-sidebar:hover {
+  background: #475569;
+}
+
+.chat-list,
+.template-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-item,
+.template-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0.25rem;
+}
+
+.chat-item:hover,
+.template-item:hover {
+  background: #334155;
+}
+
+.chat-item.active {
+  background: #3b82f6;
+}
+
+.template-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.template-desc {
+  font-size: 0.75rem;
+  color: #64748b;
+}

@@ -1,0 +1,9 @@
+# Render Blueprint - Deploy API as Web Service
+# Connect repo at render.com → New → Blueprint
+services:
+  - type: web
+    name: idea-engine-api
+    runtime: node
+    buildCommand: pnpm install
+    startCommand: node apps/api/server.js
+    envVars: []

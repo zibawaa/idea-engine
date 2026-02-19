@@ -1,0 +1,28 @@
+{
+  "name": "idea-engine",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cross-platform Idea Engine - routes problems to multiple AI providers, merges and scores ideas",
+  "scripts": {
+    "dev": "pnpm --filter desktop dev",
+    "build": "pnpm --filter desktop build",
+    "lint": "pnpm exec eslint . --max-warnings 0",
+    "test": "pnpm -r test",
+    "icon": "node scripts/gen-icon.js",
+    "eval": "cargo run -p idea-engine-core --bin eval --",
+    "api": "pnpm --filter api start",
+    "api:dev": "pnpm --filter api dev"
+  },
+  "packageManager": "pnpm@9.14.2",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "eslint": "^9.15.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "sharp": "^0.34.5",
+    "typescript-eslint": "^8.15.0"
+  }
+}

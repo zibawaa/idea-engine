@@ -1,0 +1,68 @@
+.idea-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.idea-card-header {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.provider-badge,
+.model-badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: #334155;
+}
+
+.idea-section {
+  margin-bottom: 1rem;
+}
+
+.idea-section h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.idea-section ul,
+.idea-section ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.idea-section li {
+  margin-bottom: 0.25rem;
+}
+
+.step-details {
+  color: #64748b;
+}
+
+.risk-high {
+  color: #f87171;
+}
+
+.risk-medium {
+  color: #fbbf24;
+}
+
+.risk-low {
+  color: #34d399;
+}
+
+.effort {
+  font-size: 0.875rem;
+}
+
+.priority-immediate {
+  color: #f87171;
+}
+
+.priority-short {
+  color: #fbbf24;
+}
